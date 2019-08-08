@@ -9,8 +9,8 @@ namespace inventario.COMMON.interfaces
     {
         bool Create(T entidad);
         List<T> Read { get; }
-        bool Update(T Id,T entidadModificada);
-        bool Delete(T entidad);
+        bool Update(T entidadModificada);
+        bool Delete(string id);
         
 
     }
