@@ -1,10 +1,11 @@
-﻿using System;
+﻿using inventario.COMMON.interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace inventario.COMMON.entidades
 {
-    class inventario : @base
+    class Producto : Base
     {
         
         public string Nombre { get; set; }

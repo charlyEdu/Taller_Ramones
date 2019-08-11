@@ -5,7 +5,7 @@ using System.Text;
 
 namespace inventario.COMMON.interfaces
 {
-    public interface IRepositorio<T> where T:@base
+    public interface IRepositorio<T> where T:Base
     {
         bool Create(T entidad);
         List<T> Read { get; }

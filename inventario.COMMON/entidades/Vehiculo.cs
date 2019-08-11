@@ -1,10 +1,11 @@
-﻿using System;
+﻿using inventario.COMMON.interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace inventario.COMMON.entidades
 {
-    public class vehiculo:@base
+    public class Vehiculo:Base
     {
         
         public string Marca { get; set; }

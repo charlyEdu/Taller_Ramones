@@ -8,31 +8,31 @@ using System.Text;
 
 namespace inventario.DAL
 {
-    public class RepositorioDeEmpleado : IRepositorio<Empleado>
+    public class RepositorioDeProducto : IRepositorio<Producto>
     {
         private string DBName = "inventario.db";
-        private string TableName = "Empleado";
-        public List<Empleado> Read {
+        private string TableName = "Producto";
+        public List<Producto> Read
+        {
             get
             {
-                List<Empleado> datos = new List<Empleado>();
+                List<Producto> datos = new List<Producto>();
                 using (var db = new LiteDatabase(DBName))
                 {
-                    datos = db.GetCollection<Empleado>(TableName).FindAll
+                    datos = db.GetCollection<Producto>(TableName).FindAll
                     ().ToList();
                 }
                 return datos;
             }
         }
-
-        public bool Create(Empleado entidad)
+        public bool Create(Producto entidad)
         {
             entidad.Id = Guid.NewGuid().ToString();
             try
             {
                 using (var db = new LiteDatabase(DBName))
                 {
-                    var coleccion = db.GetCollection<Empleado>(TableName);
+                    var coleccion = db.GetCollection<Producto>(TableName);
                     coleccion.Insert(entidad);
                 }
                 return true;
@@ -42,7 +42,6 @@ namespace inventario.DAL
                 return false;
             }
         }
-
         public bool Delete(string id)
         {
             try
@@ -50,8 +49,8 @@ namespace inventario.DAL
                 int r;
                 using (var db = new LiteDatabase(DBName))
                 {
-                    var coleccion = db.GetCollection<Empleado>(TableName);
-                   r = coleccion.Delete(e => e.Id == id);
+                    var coleccion = db.GetCollection<Producto>(TableName);
+                    r = coleccion.Delete(e => e.Id == id);
                 }
                 return r > 0;
             }
@@ -60,14 +59,13 @@ namespace inventario.DAL
                 return false;
             }
         }
-
-        public bool Update(Empleado entidadModificada)
+        public bool Update(Producto entidadModificada)
         {
             try
             {
                 using (var db = new LiteDatabase(DBName))
                 {
-                    var coleccion = db.GetCollection<Empleado>(TableName);
+                    var coleccion = db.GetCollection<Producto>(TableName);
                     coleccion.Update(entidadModificada);
                 }
                 return true;

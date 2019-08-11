@@ -4,7 +4,7 @@ using System.Text;
 
 namespace inventario.COMMON.entidades
 {
-    public class cliente : @base
+    public class Cliente : Base
     {
         
         public string Nombre { get; set; }
